@@ -42,8 +42,8 @@
       <div class="navbar-nav">
         <a href="#home">Home</a>
         <a href="#about">Tentang Kami</a>
-        <a href="#menu">Katalog</a>
-        <!-- <a href="#products">Produk</a> -->
+        <!-- <a href="#menu">Katalog</a> -->
+        <a href="#products">Produk</a>
         <a href="#contact">Kontak</a>
       </div>
 
@@ -113,8 +113,6 @@
       <div class="mask-container">
         <main class="content">
           <h1>Sebuah Kebaikan Dari <span>Merawat Alam</span></h1>
-          <!-- <p><i data-feather="map-pin"></i> Lansekap Hutan Lindung Register 31, Kab. Tanggamus</p> -->
-          <!-- <a href="https://maps.app.goo.gl/HvZYjxJSx9PuZSDu8" target="_blank" class="cta"><i data-feather="map-pin"></i> Lansekap Hutan Lindung Register 31, Kab. Tanggamus</a> -->
         </main>
       </div>
       <main class="contenta">
@@ -122,18 +120,6 @@
         </main>
     </section>
     <!-- Hero Section end -->
-
-    <!-- Hero2 Section start -->
-    <!-- <section class="hero2">
-      <div class="mask-container2">
-        <main class="content2">
-          <h1><span>Hutan Lestari</span> Masyarakat Sejahtera</h1>
-          <p>Gapoktanhut Lestari Sejahera</p>
-          <a href="#" class="cta">Jelajahi Sekarang </a>
-        </main>
-      </div>
-    </section> -->
-    <!-- Hero2 Section end -->
 
     <!-- About Section start -->
     <section id="about" class="about">
@@ -144,7 +130,7 @@
           Your browser does not support the video tag.
         </video>
         <div class="content">
-          <h3>Mengapa memilih produk kami?</h3>
+          <h3><span>Cerita </span> perjalanan kami</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
             faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
@@ -155,7 +141,11 @@
             torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor
             sit amet consectetur adipiscing elit. Quisque faucibus ex sapien
             vitae pellentesque sem placerat. In id cursus mi pretium tellus duis
-            convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar
+            convallis.
+          </p>
+          <h3>Mengapa memilih <span>produk </span>kami?</h3>
+          <p>
+            Tempus leo eu aenean sed diam urna tempor. Pulvinar
             vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa
             nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel
             class aptent taciti sociosqu. Ad litora torquent per conubia nostra
@@ -165,6 +155,8 @@
       </div>
     </section>
     <!-- About Section end -->
+
+
 
     <!-- Hero3 Section start -->
     <section class="hero3">
@@ -178,7 +170,7 @@
 
     <!-- Menu Section start -->
     <section id="menu" class="menu">
-      <h2>Katalog</h2>
+      <h2>Komoditas</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita,
         repellendus numquam quam tempora voluptatum.
@@ -188,36 +180,37 @@
         <div class="menu-card">
           <img src="img/menu/kopi1.webp" alt="Espresso" class="menu-card-img" />
           <h3 class="menu-card-title">- Kopi -</h3>
-          <p class="menu-card-price">IDR - K</p>
+          <!-- <p class="menu-card-price">Rp</p> -->
         </div>
         <div class="menu-card">
           <img src="img/menu/kakao1.webp" alt="Espresso" class="menu-card-img" />
           <h3 class="menu-card-title">- Kakao -</h3>
-          <p class="menu-card-price">IDR - K</p>
+          <!-- <p class="menu-card-price">Rp</p> -->
         </div>
         <div class="menu-card">
           <img src="img/menu/durian1.webp" alt="Espresso" class="menu-card-img" />
           <h3 class="menu-card-title">- Durian -</h3>
-          <p class="menu-card-price">IDR - K</p>
+          <!-- <p class="menu-card-price">Rp</p> -->
         </div>
         <div class="menu-card">
           <img src="img/menu/jengkol1.webp" alt="Espresso" class="menu-card-img" />
           <h3 class="menu-card-title">- Jengkol -</h3>
-          <p class="menu-card-price">IDR -K</p>
+          <!-- <p class="menu-card-price">Rp</p> -->
         </div>
         <div class="menu-card">
           <img src="img/menu/pala1.webp" alt="Espresso" class="menu-card-img" />
           <h3 class="menu-card-title">- Pala -</h3>
-          <p class="menu-card-price">IDR - K</p>
+          <!-- <p class="menu-card-price">Rp</p> -->
         </div>
         <div class="menu-card">
           <img src="img/menu/pisang1.webp" alt="Espresso" class="menu-card-img" />
           <h3 class="menu-card-title">- Pisang -</h3>
-          <p class="menu-card-price">IDR - K</p>
+          <!-- <p class="menu-card-price">Rp</p> -->
         </div>
       </div>
     </section>
     <!-- Menu Section end -->
+
 
     <!-- Products Section start -->
     <section class="products" id="products" x-data="products">
@@ -228,7 +221,7 @@
       </p>
 
       <div class="row">
-        <template x-for="(item, index) in items" x-keys="index">
+        <template x-for="(item, index) in items" x-key="index">
           <div class="product-card">
             <div class="product-icons">
               <a href="#" @click.prevent="$store.cart.add(item)">
@@ -263,8 +256,8 @@
             </div>
             <div class="product-content">
               <h3 x-text="item.name"></h3>
-              <div class="product-stars">
-                     <svg
+              <div class="product-stars"><span x-text="item.star"></span>
+                    <!-- <svg
                       width="24"
                       height="24"
                       fill="currentColor"
@@ -318,16 +311,52 @@
                       stroke-linejoin="round"
                     >
                       <use href="img/feather-sprite.svg#star" />
-                    </svg>  
+                    </svg>   -->
               </div>
               <div class="product-price"><span x-text="rupiah(item.price)"></span></div>
             </div>
           </div>
         </template>
-        
       </div>
     </section>
     <!-- Products Section end -->
+
+        <!-- About2 Section start -->
+    <section id="about2" class="about2">
+      <h2>Paket <span>Ekowisata</span></h2>
+      <!-- <div class="row">
+        
+        <div class="content">
+          <h3>Konservasi</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+            faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
+            pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
+            tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
+            hendrerit semper vel class aptent taciti sociosqu. Ad litora
+            torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor
+            sit amet consectetur adipiscing elit. Quisque faucibus ex sapien
+            vitae pellentesque sem placerat. In id cursus mi pretium tellus duis
+            convallis.
+          </p>
+          <h3>Ekowisata</h3>
+          <p>
+            Tempus leo eu aenean sed diam urna tempor. Pulvinar
+            vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa
+            nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel
+            class aptent taciti sociosqu. Ad litora torquent per conubia nostra
+            inceptos himenaeos.
+          </p>
+        </div>
+     
+      </div> -->
+         <video preload autoplay loop muted playsinline class="about-img">
+          <source src="img/0727.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+    </section>
+    <!-- About2 Section end -->
 
     <!-- Contact Section start -->
     <section id="contact" class="contact">
@@ -358,6 +387,18 @@
     </section>
     <!-- Contact Section end -->
 
+    <!-- Hero2 Section start -->
+    <section class="hero2">
+      <div class="mask-container2">
+        <main class="content2">
+          <h1>Hutan <span>Lestari</span> Masyarakat <span>Sejahtera</span></h1>
+          <!-- <p>Gapoktanhut Lestari Sejahera</p>
+          <a href="#" class="cta">Jelajahi Sekarang </a> -->
+        </main>
+      </div>
+    </section>
+    <!-- Hero2 Section end -->
+
     <!-- Footer start -->
     <footer>
       <div class="socials">
@@ -384,7 +425,7 @@
       <div class="modal-container">
         <a href="#" class="close-icon"><i data-feather="x"></i></a>
         <div class="modal-content">
-          <img src="img/products/kopi.webp" alt="Product 1" />
+          <img src="img/products/(1).webp" alt="Product 1" />
           <div class="product-content">
             <h3>Product 1</h3>
             <p>
@@ -407,6 +448,7 @@
           </div>
         </div>
       </div>
+      </template>
     </div>
     <!-- Modal Box Item Detail end -->
 
