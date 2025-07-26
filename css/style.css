@@ -365,6 +365,10 @@ body {
   padding: 8rem 7% 1.4rem;
   min-height: 100vh;
 }
+.about2 {
+  padding: 8rem 7% 1.4rem;
+  min-height: 50vh;
+}
 
 .about h2,
 .menu h2,
@@ -374,11 +378,21 @@ body {
   font-size: 2.6rem;
   margin-bottom: 3rem;
 }
+.about2 h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+}
 
 .about h2 span,
+.about h3 span,
 .menu h2 span,
 .products h2 span,
 .contact h2 span {
+  color: var(--primary);
+}
+.about2 h2 span,
+.about2 h3 span {
   color: var(--primary);
 }
 
@@ -422,14 +436,15 @@ body {
 .hero2 {
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: url("../img/coffeebw-bg.png");
+  align-items: left;
+  justify-content: left;
+  background-image: url("../img/coffeebw.png");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
+  bottom: 0;
   /* -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0));
   mask-image: linear-gradient(rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0)); */
 }
@@ -460,12 +475,10 @@ body {
 
 .hero2 .content2 {
   padding: 1.4rem 7%;
-  max-width: 60rem;
-  /* width: 100%; */
-  text-align: center;
-  position: relative;
-  /* top: 130px;
-  left: 0px; */
+  /* max-width: 70rem; */
+  width: 50%;
+  position: absolute;
+  bottom: 50px;
 }
 
 .hero2 .content2 h1 {
@@ -477,6 +490,7 @@ body {
 
 .hero2 .content2 h1 span {
   color: var(--primary);
+  text-shadow: 2px 2px 4px #ffffff;
 }
 
 .hero2 .content2 p {
@@ -696,17 +710,19 @@ body {
   display: flex;
   margin-top: 2rem;
   background-color: #222;
+  bottom: 0px;
 }
 
 .contact .row .map {
   flex: 1 1 45rem;
   width: 100%;
   object-fit: cover;
+  bottom: 0px;
 }
 
 .contact .row form {
   flex: 1 1 45rem;
-  padding: 5rem 2rem;
+  padding: 2rem 2rem;
   text-align: center;
 }
 
@@ -742,7 +758,7 @@ footer {
   background-color: var(--primary);
   text-align: center;
   padding: 1rem 0 3rem;
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
 }
 
 footer .socials {
