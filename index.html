@@ -313,7 +313,7 @@
                       <use href="img/feather-sprite.svg#star" />
                     </svg>   -->
               </div>
-              <div class="product-price"><span x-text="rupiah(item.price)"></span></div>
+              <div class="product-price"><span x-text="rupiah(item.price)"></span><span x-text="item.quant"></span></div>
             </div>
           </div>
         </template>
@@ -321,42 +321,64 @@
     </section>
     <!-- Products Section end -->
 
-        <!-- About2 Section start -->
-    <section id="about2" class="about2">
-      <h2>Paket <span>Ekowisata</span></h2>
-      <!-- <div class="row">
-        
-        <div class="content">
-          <h3>Konservasi</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-            faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
-            pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
-            tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
-            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
-            hendrerit semper vel class aptent taciti sociosqu. Ad litora
-            torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor
-            sit amet consectetur adipiscing elit. Quisque faucibus ex sapien
-            vitae pellentesque sem placerat. In id cursus mi pretium tellus duis
-            convallis.
-          </p>
-          <h3>Ekowisata</h3>
-          <p>
-            Tempus leo eu aenean sed diam urna tempor. Pulvinar
-            vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa
-            nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel
-            class aptent taciti sociosqu. Ad litora torquent per conubia nostra
-            inceptos himenaeos.
-          </p>
-        </div>
-     
-      </div> -->
+      <!-- Services Section start -->
+    <section class="products" id="products" x-data="products">
+      <h2>Paket <span>ekowisata</span></h2>
+      <!-- <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo unde eum,
+        ab fuga possimus iste.
+      </p> -->
          <video preload autoplay loop muted playsinline class="about-img">
           <source src="img/0727.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+
+      <div class="row">
+        <template x-for="(item, index) in items2" x-key="index">
+          <div class="product-card">
+            <div class="product-icons">
+              <a href="#" @click.prevent="$store.cart.add(item)">
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <use href="img/feather-sprite.svg#shopping-cart" />
+              </svg>  
+              </a>
+              <a href="#" class="item-detail-button">
+                     <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <use href="img/feather-sprite.svg#eye" />
+              </svg> 
+              </a>
+            </div>
+            <div class="product-image">
+              <img :src="`img/products/${item.img}`" :alt="item.name">
+            </div>
+            <div class="product-content">
+              <h3 x-text="item.name"></h3>
+              <div class="product-stars"><span x-text="item.star"></span>
+                    
+              </div>
+              <div class="product-price"><span x-text="rupiah(item.price)"></span><span x-text="item.quant"></span></div>
+            </div>
+          </div>
+        </template>
+      </div>
     </section>
-    <!-- About2 Section end -->
+    <!-- Services Section end -->
 
     <!-- Contact Section start -->
     <section id="contact" class="contact">

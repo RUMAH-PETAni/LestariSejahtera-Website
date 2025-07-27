@@ -698,6 +698,9 @@ body {
   font-size: 1.3rem;
   font-weight: bold;
 }
+.products .product-quant {
+  font-size: 1rem;
+}
 
 /* .products .product-price span {
   text-decoration: line-through;
