@@ -6,7 +6,7 @@ document.addEventListener("alpine:init", () => {
         name: "Arabika Lampung",
         img: "(1).webp",
         price: 100000,
-        star: "⭐⭐⭐⭐☆",
+        star: "⭐⭐⭐☆☆",
       },
       {
         id: 2,
@@ -20,7 +20,7 @@ document.addEventListener("alpine:init", () => {
         name: "Liberika Lampung",
         img: "(3).webp",
         price: 30000,
-        star: "⭐⭐⭐☆☆",
+        star: "⭐☆☆☆☆",
       },
     ],
   }));
