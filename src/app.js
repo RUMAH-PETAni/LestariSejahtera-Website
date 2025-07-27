@@ -1,9 +1,27 @@
 document.addEventListener("alpine:init", () => {
   Alpine.data("products", () => ({
     items: [
-      { id: 1, name: "Arabika Lampung", img: "(1).webp", price: 100000 },
-      { id: 2, name: "Robusta Lampung", img: "(2).webp", price: 60000 },
-      { id: 3, name: "Liberika Lampung", img: "(3).webp", price: 30000 },
+      {
+        id: 1,
+        name: "Arabika Lampung",
+        img: "(1).webp",
+        price: 100000,
+        star: "⭐⭐⭐⭐☆",
+      },
+      {
+        id: 2,
+        name: "Robusta Lampung",
+        img: "(2).webp",
+        price: 60000,
+        star: "⭐⭐⭐⭐⭐",
+      },
+      {
+        id: 3,
+        name: "Liberika Lampung",
+        img: "(3).webp",
+        price: 30000,
+        star: "⭐⭐⭐☆☆",
+      },
     ],
   }));
 
