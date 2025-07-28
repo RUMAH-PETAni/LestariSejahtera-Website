@@ -19,7 +19,7 @@ document.addEventListener("alpine:init", () => {
       },
       {
         id: 3,
-        name: "Eco Souvenirs",
+        name: "Eco Souvenir",
         img: "(3).webp",
         price: 150000,
         star: "⭐⭐⭐⭐☆",
@@ -29,19 +29,19 @@ document.addEventListener("alpine:init", () => {
     items2: [
       {
         id: 4,
-        name: "1 Day Trip",
+        name: "Paket Ekowisata 1",
         img: "(4).webp",
         price: 1000000,
         star: "⭐⭐⭐⭐⭐",
-        quant: " / orang",
+        quant: " / 1 Day Trip",
       },
       {
         id: 5,
-        name: "2 Day 1 Night",
+        name: "Paket Ekowisata 2",
         img: "(5).webp",
         price: 2000000,
-        star: "⭐⭐⭐⭐⭐",
-        quant: " / orang",
+        star: "⭐⭐⭐⭐☆",
+        quant: " / 2 Day 1 Night",
       },
     ],
   }));
@@ -106,24 +106,50 @@ document.addEventListener("alpine:init", () => {
 });
 
 //Form validation
-// const checkoutButton = document.querySelector(".checkout-button");
-// checkoutButton.disabled = true;
+const checkoutButton = document.querySelector(".checkout-button");
+checkoutButton.disabled = true;
 
-// const form = document.querySelector("#checkoutForm");
+const form = document.querySelector("#checkoutForm");
 
-// form.addEventListener("keyup", function () {
-//   for (let i = 0; i < form.elements.length; i++) {
-//     if (form.elements[i].value.length !== 0) {
-//       checkoutButton.classList.remove("disabled");
-//       checkoutButton.classList.add("disabled");
-//     } else {
-//       return false;
-//     }
-//   }
+form.addEventListener("keyup", function () {
+  for (let i = 0; i < form.elements.length; i++) {
+    if (form.elements[i].value.length !== 0) {
+      checkoutButton.classList.remove("disabled");
+      checkoutButton.classList.add("disabled");
+    } else {
+      return false;
+    }
+  }
 
-//   checkoutButton.disabled = false;
-//   checkoutButton.classList.remove("disabled");
-// });
+  checkoutButton.disabled = false;
+  checkoutButton.classList.remove("disabled");
+});
+
+//kirim data ketika tombol di klik
+checkoutButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const data = new URLSearchParams(formData);
+  const objData = Object.fromEntries(data);
+  const message = formatMessage(objData);
+  // console.log(objData);
+  window.open("http://wa.me/6281273891704?text=" + encodeURIComponent(message));
+});
+
+//format pesan WA
+const formatMessage = (obj) => {
+  return `Data Customer
+  Nama: ${obj.name}
+  Email: ${obj.email}
+  Phone: ${obj.phone}
+Data Pesanan
+${JSON.parse(obj.items).map(
+  (item) => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n`
+)}
+TOTAL: ${rupiah(obj.total)}
+Terima Kasih.
+  `;
+};
 
 // konversi ke rupiah
 const rupiah = (number) => {
