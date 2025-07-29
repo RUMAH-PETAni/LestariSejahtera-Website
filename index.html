@@ -35,7 +35,7 @@
 
   <body>
     <!-- Navbar start -->
-    <nav class="navbar" x-data>
+    <nav class="navbar" id="navbar" x-data>
       <a href="#"> <img src="img/lesjah-bw.svg" /></a>
 
       <div class="navbar-nav">
@@ -43,7 +43,6 @@
         <a href="#about">Tentang Kami</a>
         <!-- <a href="#menu">Katalog</a> -->
         <a href="#products">Produk</a>
-        
         <a href="#contact">Kontak</a>
       </div>
 
@@ -80,36 +79,36 @@
           </div>
         </div> 
         </template>
-        <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem;">Cart is Empty</h4>
+        <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem;    font-size: 1.5rem;">Keranjang masih kosong</h4>
         <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
-      <div class="form-container" x-show="$store.cart.items.length">
-        <form action="" id="checkoutForm">
-          <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)">
-          <input type="hidden" name="total" x-model="JSON.stringify($store.cart.total)">
-
-          <h5>Customer Detail</h5>
-          <label for="name">
-            <span>Name</span>
-            <input type="text" name="name" id="name">
-          </label>
-            <label for="email">
-            <span>Email</span>
-            <input type="email" name="email" id="email">
-          </label>
-            <label for="phone">
-            <span>Phone</span>
-            <input type="number" name="phone" id="phone" autocomplete="off">
-          </label>
-            <button class="checkout-button disabled" type="submit" id="checkout-button" value="checkout">Checkout</button>
+        <div class="form-container" x-show="$store.cart.items.length">
+          <form action="" id="checkoutForm">
+            <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)">
+            <input type="hidden" name="total" x-model="JSON.stringify($store.cart.total)">
+            <h5>Customer Detail</h5>
+            <label for="name">
+              <span>Name</span>
+              <input type="text" name="name" id="name">
+            </label>
+              <label for="email">
+              <span>Email</span>
+              <input type="email" name="email" id="email">
+            </label>
+              <label for="phone">
+              <span>Phone</span>
+              <input type="number" name="phone" id="phone" autocomplete="off">
+            </label>
+              <button class="checkout-button disabled" type="submit" id="checkout-button" value="checkout">Checkout</button>
           </form>
-
+        </div>
       </div>
-  
-      </div>
-      <!-- Shopping Cart end -->
     </nav>
+   
+      <!-- Shopping Cart end -->
     <!-- Navbar end -->
 
+
+ 
     <!-- Hero Section start -->
     <section class="hero" id="home">
       <div class="mask-container">
@@ -213,7 +212,7 @@
       </div>
     </section>
     <!-- Menu Section end -->
-  <!-- Hero4 Section start -->
+    <!-- Hero4 Section start -->
     <section class="hero3a">
       <div class="mask-container3a">
         <main class="content3a">
@@ -292,7 +291,7 @@
                 <use href="img/feather-sprite.svg#shopping-cart" />
               </svg>  
               </a>
-              <a href="#" class="item-detail-button">
+              <a href="#" @click.prevent="item-detail-button">
                      <svg
                 width="24"
                 height="24"
@@ -311,62 +310,7 @@
             </div>
             <div class="product-content">
               <h3 x-text="item.name"></h3>
-              <div class="product-stars"><span x-text="item.star"></span>
-                    <!-- <svg
-                      width="24"
-                      height="24"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <use href="img/feather-sprite.svg#star" />
-                    </svg>
-                    <svg
-                      width="24"
-                      height="24"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <use href="img/feather-sprite.svg#star" />
-                    </svg> 
-                    <svg
-                      width="24"
-                      height="24"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <use href="img/feather-sprite.svg#star" />
-                    </svg> 
-                    <svg
-                      width="24"
-                      height="24"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <use href="img/feather-sprite.svg#star" />
-                    </svg> 
-                    <svg
-                      width="24"
-                      height="24"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <use href="img/feather-sprite.svg#star" />
-                    </svg>   -->
+              <div class="product-stars"><span x-text="item.star"></span> 
               </div>
               <div class="product-price"><span x-text="rupiah(item.price)"></span><span x-text="item.quant"></span></div>
             </div>
@@ -408,7 +352,7 @@
                 <use href="img/feather-sprite.svg#shopping-cart" />
               </svg>  
               </a>
-              <a href="#" class="item-detail-button">
+              <a href="#products" @click.prevent="item-detail-button">
                      <svg
                 width="24"
                 height="24"
@@ -437,12 +381,13 @@
       </div>
     </section>
     <!-- Services Section end -->
+  
 
      <!-- Hero2a Section start -->
     <section class="hero2a">
       <div class="mask-container2a">
         <main class="content2a">
-          <h1>Dengan membeli <span>produk kami </span>berarti anda telah ikut berpartisipasi bersama kami untuk <span>Merawat Alam</span></h1>
+          <h1>Dengan memilih <span>produk kami </span>berarti anda telah ikut berpartisipasi bersama kami untuk <span>Merawat Alam</span></h1>
           <!-- <p>10% dari keuntungan akan digunakan untuk kegiatan rehabilitasi lahan dan hutan serta membayar PSDH ke pemerintah</p> -->
           <a href="#" class="cta2">10% dari keuntungan akan digunakan untuk kegiatan rehabilitasi lahan <br>serta membayar Provisi Sumber Daya Hutan ke pemerintah</a>
         </main>
@@ -513,12 +458,15 @@
     </footer>
     <!-- Footer end -->
 
+
+
     <!-- Modal Box Item Detail start -->
-    <div class="modal" id="item-detail-modal">
+    <!-- <div class="modal" id="item-detail-modal">
+      <template x-for = "(item, index) in $store.cart.items" x-keys="index">
       <div class="modal-container">
         <a href="#" class="close-icon"><i data-feather="x"></i></a>
         <div class="modal-content">
-          <img src="img/products/(1).webp" alt="Product 1" />
+         <img :src="`img/products/${item.img}`" :alt="item.name">
           <div class="product-content">
             <h3>Product 1</h3>
             <p>
@@ -542,8 +490,11 @@
         </div>
       </div>
       </template>
-    </div>
+    </div> -->
     <!-- Modal Box Item Detail end -->
+
+    <div onclick="scrollToTop()" class="scrollTop" id="scrollTop"><i data-feather="arrow-up"></i>
+    </div>
 
     <!-- Feather Icons -->
     <script>

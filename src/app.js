@@ -1,3 +1,15 @@
+// //alpine dropdown
+// document.addEventListener("alpine:init", () => {
+//   Alpine.data("dropdown", () => ({
+//     open: false,
+
+//     toggle() {
+//       this.open = !this.open;
+//     },
+//   }));
+// });
+
+//alpine store
 document.addEventListener("alpine:init", () => {
   Alpine.data("products", () => ({
     items: [
@@ -13,7 +25,7 @@ document.addEventListener("alpine:init", () => {
         id: 2,
         name: "Greenbean Robusta",
         img: "(2).webp",
-        price: 70000,
+        price: 75000,
         star: "⭐⭐⭐☆☆",
         quant: " / kilogram",
       },
@@ -42,6 +54,14 @@ document.addEventListener("alpine:init", () => {
         price: 2000000,
         star: "⭐⭐⭐⭐☆",
         quant: " / 2 Day 1 Night",
+      },
+      {
+        id: 6,
+        name: "Donasi Bibit Pohon",
+        img: "(6).webp",
+        price: 100000,
+        star: "⭐⭐⭐⭐⭐",
+        quant: " / 5 pohon ditanam",
       },
     ],
   }));
@@ -159,3 +179,14 @@ const rupiah = (number) => {
     minimumFractionDigits: 0,
   }).format(number);
 };
+
+// Modal Box
+// const itemDetailModal = document.querySelector("#products");
+// const itemDetailButtons = document.querySelectorAll(".product");
+
+// itemDetailButtons.forEach((btn) => {
+//   btn.onclick = (e) => {
+//     itemDetailModal.style.display = "flex";
+//     e.preventDefault();
+//   };
+// });
