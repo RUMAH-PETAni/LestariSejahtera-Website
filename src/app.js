@@ -33,7 +33,7 @@ document.addEventListener("alpine:init", () => {
         id: 3,
         name: "Eco Souvenir",
         img: "(3).webp",
-        price: 150000,
+        price: 100000,
         star: "⭐⭐⭐⭐☆",
         quant: " / bundle",
       },
